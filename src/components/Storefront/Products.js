@@ -1,28 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { add } from '../../store/actions';
 
-//TODO: Displays a list of products associated with the selected category
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+}));
+
 
 const Products = props => {
-  // console.log('PROPS???', props);
+  const classes = useStyles();
   return (
-    <div>
+    <div className={classes.root}>
       <h2>A list of all my cool products:</h2>
       <ul>
         {props.productsToDisplay.map(product => {
-          return <li key={product.name}>{product.name}</li>;
+          return <li onClick={() => props.addItemToCart(product)} key={product.name} >
+            <Button variant="contained" color="primary">{product.name}
+            </Button></li>;
         })}
       </ul>
-    </div>
+    </div >
   );
 };
 
+const mapDispatchToProps = { addItemToCart: add };
 const mapStateToProps = state => {
-  // console.log('STATE???', state.products.products);
   return {
     products: state.products.products,
     productsToDisplay: state.products.productsToDisplay,
   };
 };
-
-export default connect(mapStateToProps)(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(Products);

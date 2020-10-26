@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Categories from './components/Storefront/Categories';
+import Cart from './components/Storefront/Cart';
 import CurrentCategory from './components/Storefront/Current-Category';
 import Products from './components/Storefront/Products';
 import './reset.css';
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <Header />
+      <Cart />
       <CurrentCategory />
       <Categories />
       <Products />

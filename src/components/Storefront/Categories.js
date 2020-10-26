@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeActiveCategory } from '../../store/products';
+import { changeActiveCategory } from '../../store/actions';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
@@ -13,13 +13,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-//TODO: Shows a list of all categories
-// Dispatches an action when one is clicked to “activate” it
 
 const Categories = props => {
   const classes = useStyles();
   let categoriesToMap = props.category.categories;
-  // console.log('MAP???', categoriesToMap);
 
   return (
     <>
@@ -45,7 +42,7 @@ const Categories = props => {
 
 const mapStateToProps = state => {
   return {
-    category: state.categories, // maybe change this
+    category: state.categories,
   };
 };
 

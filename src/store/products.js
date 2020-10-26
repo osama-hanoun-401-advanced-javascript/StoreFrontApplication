@@ -42,12 +42,7 @@ const initialState = {
   ],
   productsToDisplay: [],
 };
-export const changeActiveCategory = name => {
-  return {
-    type: 'change',
-    payload: name,
-  };
-};
+
 export default (state = initialState, action) => {
   const { type, payload } = action;
 
