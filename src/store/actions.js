@@ -33,11 +33,11 @@ export const getCategories = () => {
 
 
 
-export const readProducts = () => {
+export const readAllProduct = () => {
     return async function (dispatch) {
         const response = await axios.get(`https://api-js401.herokuapp.com/api/v1/products`);
         dispatch({
-            type: 'READ_PRODUCTS',
+            type: 'READ_ALL_PRODUCTS',
             payload: response.data.results,
         });
     };

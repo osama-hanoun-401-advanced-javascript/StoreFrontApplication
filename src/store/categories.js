@@ -12,7 +12,7 @@
 // }
 const initialState = {
   categories: [],
-  activeCategory: 'food',
+  activeCategory: '',
 };
 
 

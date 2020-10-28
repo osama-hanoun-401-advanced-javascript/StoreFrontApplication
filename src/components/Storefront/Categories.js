@@ -19,7 +19,7 @@ const Categories = props => {
   let categoriesToMap = props.category.categories;
   useEffect(() => {
     props.getCategories();
-  }, [props.getCategories]);
+  }, []);
   return (
     <>
       <div className={classes.root}>

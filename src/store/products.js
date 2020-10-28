@@ -8,36 +8,7 @@
 //    inStock	980
 //    price	100.1
 const initialState = {
-  products: [
-    {
-      name: 'egg cooker',
-      category: 'kitchen',
-      description: 'it cooks eggs!',
-      price: '$15',
-      inventory: 10,
-    },
-    {
-      name: 'the baconator',
-      category: 'kitchen',
-      description: 'bacon!!',
-      price: '$24',
-      inventory: 5,
-    },
-    {
-      name: 'nintendo switch',
-      category: 'electronics',
-      description: 'an instant classic',
-      price: '$299',
-      inventory: 1,
-    },
-    {
-      name: 'the coolest stapler',
-      category: 'office',
-      description: 'I believe someone still has it',
-      price: '$1',
-      inventory: 1,
-    },
-  ],
+  products: [],
   productsToDisplay: [],
 };
 
@@ -54,9 +25,8 @@ export default (state = initialState, action) => {
       });
       // console.log('DISPLAY PRODS', productsToDisplay);
       return { ...state, productsToDisplay };
-    case 'UPDATE_PRODUCTS':
-      return { ...state, productsToDisplay };
-
+    case 'READ_ALL_PRODUCTS':
+      return { ...state, products: payload };
     default:
       return state;
   }
