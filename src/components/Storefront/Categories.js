@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeActiveCategory } from '../../store/actions';
+import { changeActiveCategory, getCategories } from '../../store/actions';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
+import { useEffect } from 'react';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -17,7 +17,9 @@ const useStyles = makeStyles((theme) => ({
 const Categories = props => {
   const classes = useStyles();
   let categoriesToMap = props.category.categories;
-
+  useEffect(() => {
+    props.getCategories();
+  }, [props.getCategories]);
   return (
     <>
       <div className={classes.root}>
@@ -27,10 +29,10 @@ const Categories = props => {
           {categoriesToMap.map(category => {
             return (
               <Button variant="contained" color="primary"
-                key={category.displayName}
+                key={category.name}
                 onClick={() => props.changeActiveCategory(category)}
               >
-                {category.displayName}
+                {category.name}
               </Button>
             );
           })}
@@ -46,6 +48,6 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = { changeActiveCategory };
+const mapDispatchToProps = { changeActiveCategory, getCategories };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);

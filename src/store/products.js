@@ -1,14 +1,12 @@
-// State should be a list of all products
 
-// Each product should have a category association, name, description, price, inventory count
-
-// Create an action that will trigger when the active category is changed
-
-// HINT: Multiple reducers can respond to the same actions
-// i.e. PRODUCTS and CATEGORIES
-
-// Create a reducer that will filter the products list based on the active category
-
+// count	7
+// results	
+//   0	
+//    _id	"5f1a5f861910080017657ed7"
+//    name	"Carrots"
+//    category	"food"
+//    inStock	980
+//    price	100.1
 const initialState = {
   products: [
     {
@@ -56,6 +54,9 @@ export default (state = initialState, action) => {
       });
       // console.log('DISPLAY PRODS', productsToDisplay);
       return { ...state, productsToDisplay };
+    case 'UPDATE_PRODUCTS':
+      return { ...state, productsToDisplay };
+
     default:
       return state;
   }
